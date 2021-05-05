@@ -33,4 +33,9 @@ public class BookController {
     {
         return bookService.getBooksByNameOrAuthorOrDesc(name, author, description);
     }
+
+    @DeleteMapping
+    public void removeBookById(Long id) {
+        bookService.removeBook(id);
+    }
 }

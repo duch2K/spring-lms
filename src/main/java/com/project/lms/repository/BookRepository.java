@@ -10,6 +10,5 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> getBooksBy();
     Book getBookById(Long id);
-    List<Book> getBooksByQuantityIsNot(Integer quantity);
     List<Book> getBooksByNameContainsOrAuthorContainsOrDescriptionContains(String name, String author, String description);
 }

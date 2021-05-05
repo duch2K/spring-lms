@@ -8,4 +8,5 @@ public interface IBookService {
     List<Book> getAll();
     Book getBookById(Long id);
     List<Book> getBooksByNameOrAuthorOrDesc(String name, String author, String description);
+    void removeBook(Long id);
 }
