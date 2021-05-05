@@ -1,7 +1,6 @@
 package com.project.lms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.project.lms.entity.Book;
 import com.project.lms.service.implement.BookService;
@@ -34,8 +33,8 @@ public class BookController {
         return bookService.getBooksByNameOrAuthorOrDesc(name, author, description);
     }
 
-    @DeleteMapping
-    public void removeBookById(Long id) {
+    @DeleteMapping("/{id}")
+    public void removeBookById(@PathVariable("id") Long id) {
         bookService.removeBook(id);
     }
 }

@@ -1,13 +1,11 @@
 package com.project.lms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.project.lms.entity.Member;
 import com.project.lms.service.implement.MemberService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/members")
@@ -17,7 +15,17 @@ public class MemberController {
 
     // GET
     @GetMapping("")
-    public Member getMember(@RequestParam("login") String login) {
-        return memberService.getByLogin(login);
+    public List<Member> getAllMembers() {
+        return memberService.getAll();
+    }
+
+//    @GetMapping("")
+//    public Member getMember(@RequestParam("login") String login) {
+//        return memberService.getByLogin(login);
+//    }
+
+    @PostMapping("/create")
+    public Member createNewMember(@RequestBody Member member) {
+        return memberService.createMember(member);
     }
 }
